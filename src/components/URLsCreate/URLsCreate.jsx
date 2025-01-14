@@ -26,7 +26,6 @@ const URLsCreate = () => {
     onSubmit: handleSubmit,
   });
 
-  console.log(formik);
   return (
     <div className="container">
       <div className="row justify-content-center">
