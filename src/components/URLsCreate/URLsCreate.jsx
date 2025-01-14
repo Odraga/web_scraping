@@ -6,7 +6,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const URLsCreate = ({ makeAnyChange }) => {
-  const [shortUrl, setShortUrl] = useState(null);
+  const [shortUrl, setShortUrl] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object({
@@ -20,16 +20,16 @@ const URLsCreate = ({ makeAnyChange }) => {
       setIsLoading(true);
       let requestAPI = await apiService.create("url_short", url);
 
-      /* let simpleObjUrl = {
+      let simpleObjUrl = {
         title: requestAPI.title,
         original_url: requestAPI.original_url,
         shortener_url: requestAPI.shortener_url,
         click_count: requestAPI.click_count,
       };
 
-      localStorage.setItem("short_url", JSON.stringify(simpleObjUrl)); */
+      localStorage.setItem("short_url", JSON.stringify(simpleObjUrl));
 
-      /* setShortUrl(requestAPI.shortener_url); */
+      setShortUrl(requestAPI.shortener_url);
 
       makeAnyChange();
     } catch (error) {
