@@ -29,7 +29,7 @@ const URLsCreate = ({ makeAnyChange }) => {
 
       localStorage.setItem("short_url", JSON.stringify(simpleObjUrl)); */
 
-      setShortUrl(requestAPI.shortener_url);
+      /* setShortUrl(requestAPI.shortener_url); */
 
       makeAnyChange();
     } catch (error) {
