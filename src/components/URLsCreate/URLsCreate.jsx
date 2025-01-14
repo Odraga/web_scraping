@@ -4,12 +4,7 @@ import apiService from "../../api/API";
 import { useState } from "react";
 
 const URLsCreate = () => {
-  const [shortUrl, setShortUrl] = useState({
-    title: "",
-    original_url: "",
-    shortener_url: "",
-    click_count: 0,
-  });
+  const [shortUrl, setShortUrl] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object({
