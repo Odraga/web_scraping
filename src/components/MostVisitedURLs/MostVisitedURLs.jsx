@@ -66,13 +66,13 @@ const MostVisitedURLs = () => {
                   onClick={() =>
                     handleLastCreatedUrl(
                       `https://web-scraping-nine.vercel.app/${
-                        lastedUrlCreate ? lastedUrlCreate.shortener_url : ""
+                        lastedUrlCreate ? lastedUrlCreate?.shortener_url : ""
                       }`
                     )
                   }
                 >
                   https://web-scraping-nine.vercel.app/
-                  {lastedUrlCreate.shortener_url}
+                  {lastedUrlCreate?.shortener_url}
                 </button>
                 <span className="badge text-bg-primary rounded-pill">
                   {lastedUrlCreate.click_count}
