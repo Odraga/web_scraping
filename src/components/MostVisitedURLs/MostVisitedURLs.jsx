@@ -65,7 +65,9 @@ const MostVisitedURLs = () => {
                   className="btn btn-link"
                   onClick={() =>
                     handleLastCreatedUrl(
-                      `https://web-scraping-nine.vercel.app/${lastedUrlCreate.shortener_url}`
+                      `https://web-scraping-nine.vercel.app/${
+                        lastedUrlCreate ? lastedUrlCreate.shortener_url : ""
+                      }`
                     )
                   }
                 >
