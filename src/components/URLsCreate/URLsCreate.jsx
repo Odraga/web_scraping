@@ -93,10 +93,10 @@ const URLsCreate = () => {
               <div className="card-footer">
                 New Url:{" "}
                 <a
-                  href={`https://web-scraping-nine.vercel.app/${shortUrl}`}
+                  href={`https://web-scraping-ruddy.vercel.app/${shortUrl}`}
                   target="_blank"
                 >
-                  https://web-scraping-nine.vercel.app/{shortUrl}
+                  https://web-scraping-ruddy.vercel.app/{shortUrl}
                 </a>
               </div>
             )}
