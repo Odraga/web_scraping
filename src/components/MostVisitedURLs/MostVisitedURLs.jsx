@@ -36,9 +36,8 @@ const MostVisitedURLs = () => {
   const statusArrayUrls = () => mostVisitedUrls && mostVisitedUrls.length > 0;
 
   useEffect(() => {
-    getLastedUrlCreate();
-
     const intervalId = setInterval(() => {
+      getLastedUrlCreate();
       getMostVisitedUrls();
     }, 3000); // Actualiza cada 3 segundos (3000 ms)
 
