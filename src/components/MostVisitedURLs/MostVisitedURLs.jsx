@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiService from "../../api/API";
+import Spinner from "../common/Spinner";
 
 const MostVisitedURLs = () => {
   const [mostVisitedUrls, setMostVisitedUrls] = useState([]);
@@ -92,7 +93,7 @@ const MostVisitedURLs = () => {
                             style={{ backgroundColor: "transparent" }}
                             target="_blank"
                           >
-                            {item.title}
+                            {item.title ? item.title : <Spinner />}
                           </a>
                         </div>
                         <span className="badge text-bg-primary rounded-pill">
