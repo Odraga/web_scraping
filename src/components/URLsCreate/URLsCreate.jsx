@@ -3,9 +3,7 @@ import * as Yup from "yup";
 import apiService from "../../api/API";
 import { useState } from "react";
 
-import PropTypes from "prop-types";
-
-const URLsCreate = ({ makeAnyChange }) => {
+const URLsCreate = () => {
   const [shortUrl, setShortUrl] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,8 +29,6 @@ const URLsCreate = ({ makeAnyChange }) => {
         localStorage.setItem("short_url", JSON.stringify(simpleObjUrl));
 
         setShortUrl(requestAPI.shortener_url);
-
-        makeAnyChange();
       } else {
         console.error("La API no devolvió un 'shortener_url'.");
       }
@@ -106,10 +102,6 @@ const URLsCreate = ({ makeAnyChange }) => {
       </div>
     </div>
   );
-};
-
-URLsCreate.propTypes = {
-  makeAnyChange: PropTypes.func.isRequired, // Validación de tipo para `makeAnyChange`
 };
 
 export default URLsCreate;
