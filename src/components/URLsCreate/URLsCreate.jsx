@@ -37,7 +37,7 @@ const URLsCreate = ({ makeAnyChange }) => {
         console.error("La API no devolvió un 'shortener_url'.");
       }
     } catch (error) {
-      console.error(error);
+      console.error("Oops, A error!", error);
     } finally {
       setIsLoading(false);
     }
