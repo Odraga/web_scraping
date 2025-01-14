@@ -75,7 +75,7 @@ const MostVisitedURLs = () => {
                   {lastedUrlCreate?.shortener_url}
                 </button>
                 <span className="badge text-bg-primary rounded-pill">
-                  {lastedUrlCreate.click_count}
+                  {lastedUrlCreate?.click_count}
                 </span>
               </li>
               {statusArrayUrls

@@ -22,9 +22,7 @@ const URLsCreate = () => {
         let simpleObjUrl = {
           title: requestAPI.title,
           original_url: requestAPI.original_url,
-          shortener_url: requestAPI.shortener_url
-            ? requestAPI.shortener_url
-            : "",
+          shortener_url: requestAPI.shortener_url,
           click_count: requestAPI.click_count,
         };
 
