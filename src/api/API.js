@@ -7,7 +7,7 @@ const api = axios.create({
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
     Accept: "application/json",
-    "Access-Control-Allow-Methods": "POST, GET, PATCH",
+    "Access-Control-Allow-Methods": "POST, GET",
   },
 });
 

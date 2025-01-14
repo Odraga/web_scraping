@@ -9,7 +9,7 @@ const ShortedUrlRedirection = () => {
     try {
       let requestAPI = await apiService.getById("url_short", id);
 
-      window.location.href = await requestAPI.original_url;
+      window.location.href = requestAPI.original_url;
     } catch (error) {
       console.error("ERROR", error);
     }

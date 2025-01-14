@@ -24,11 +24,24 @@ const MostVisitedURLs = () => {
     }
   };
 
+  const handleLastCreatedUrl = (url) => {
+    try {
+      window.open(url);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const statusArrayUrls = () => mostVisitedUrls && mostVisitedUrls.length > 0;
 
   useEffect(() => {
-    getMostVisitedUrls();
     getLastedUrlCreate();
+
+    const intervalId = setInterval(() => {
+      getMostVisitedUrls();
+    }, 3000); // Actualiza cada 3 segundos (3000 ms)
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -38,7 +51,7 @@ const MostVisitedURLs = () => {
           <div className="col-12 text-center">
             <h4>100 Most Visited URLs</h4>
           </div>
-          <div className="col-2 col-md-4" />
+          <div className="col-2 col-md-3" />
           <div className="col ">
             <ul className="list-group select-click shadow-sm">
               <li
@@ -48,12 +61,16 @@ const MostVisitedURLs = () => {
                 aria-current="true"
               >
                 Last created url:{" "}
-                <a
-                  href={`http://localhost:5173/${lastedUrlCreate.shortener_url}`}
-                  target="_blank"
+                <button
+                  className="btn btn-link"
+                  onClick={() =>
+                    handleLastCreatedUrl(
+                      `http://localhost:5173/${lastedUrlCreate.shortener_url}`
+                    )
+                  }
                 >
-                  {lastedUrlCreate.title}
-                </a>
+                  http://localhost:5173/{lastedUrlCreate.shortener_url}
+                </button>
                 <span className="badge text-bg-primary rounded-pill">
                   {lastedUrlCreate.click_count}
                 </span>
@@ -66,13 +83,15 @@ const MostVisitedURLs = () => {
                         className="list-group-item d-flex justify-content-between align-items-center "
                       >
                         <div>{index + 1}</div>{" "}
-                        <a
-                          href={item.original_url}
-                          style={{ backgroundColor: "transparent" }}
-                          target="_blank"
-                        >
-                          {item.title}
-                        </a>
+                        <div className="">
+                          <a
+                            href={item.original_url}
+                            style={{ backgroundColor: "transparent" }}
+                            target="_blank"
+                          >
+                            {item.title}
+                          </a>
+                        </div>
                         <span className="badge text-bg-primary rounded-pill">
                           {item.total_clicks}
                         </span>
@@ -82,7 +101,7 @@ const MostVisitedURLs = () => {
                 : null}
             </ul>
           </div>
-          <div className="col-2 col-md-4" />
+          <div className="col-2 col-md-3" />
         </div>
       </div>
     </>

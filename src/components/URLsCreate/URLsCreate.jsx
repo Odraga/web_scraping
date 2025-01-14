@@ -3,18 +3,18 @@ import * as Yup from "yup";
 import apiService from "../../api/API";
 import { useState } from "react";
 
-const URLsCreate = () => {
+import PropTypes from "prop-types";
+
+const URLsCreate = ({ makeAnyChange }) => {
   const [shortUrl, setShortUrl] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Esquema de validación con Yup
   const validationSchema = Yup.object({
     original_url: Yup.string()
       .url("Ingresa una URL válida")
       .required("La URL es obligatoria"),
   });
 
-  // Manejo del envío del formulario
   const handleSubmit = async (url) => {
     try {
       setIsLoading(true);
@@ -30,6 +30,8 @@ const URLsCreate = () => {
       localStorage.setItem("short_url", JSON.stringify(simpleObjUrl));
 
       setShortUrl(requestAPI.shortener_url);
+
+      makeAnyChange();
     } catch (error) {
       console.error(error);
     } finally {
@@ -100,6 +102,10 @@ const URLsCreate = () => {
       </div>
     </div>
   );
+};
+
+URLsCreate.propTypes = {
+  makeAnyChange: PropTypes.func.isRequired, // Validación de tipo para `makeAnyChange`
 };
 
 export default URLsCreate;
