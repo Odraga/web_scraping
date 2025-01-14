@@ -2,10 +2,12 @@ import axios from "axios";
 
 // Instancia de Axios
 const api = axios.create({
-  baseURL: "https://api.tu-dominio.com",
+  baseURL: "http://127.0.0.1:3000/api/v1/",
   headers: {
+    "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json",
     Accept: "application/json",
+    "Access-Control-Allow-Methods": "POST, GET, PATCH",
   },
 });
 
@@ -45,9 +47,9 @@ const apiService = {
   },
 
   // Actualizar un registro por ID
-  update: async (endpoint, id, data) => {
+  update: async (endpoint, data) => {
     try {
-      const response = await api.put(`/${endpoint}/${id}`, data);
+      const response = await api.patch(`/${endpoint}`, data);
       return response.data;
     } catch (error) {
       console.error("Error en update:", error);

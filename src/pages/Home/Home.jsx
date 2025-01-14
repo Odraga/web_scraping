@@ -8,10 +8,8 @@ const Home = () => {
         <div className="row">
           <h1 className=" fw-bolder text-primary text-shadow text-center my-5">
             Short URL
-          </h1>
-
+          </h1>{" "}
           <URLs />
-
           <MostVisitedURLs />
         </div>
       </div>
