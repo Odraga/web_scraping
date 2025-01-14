@@ -93,7 +93,7 @@ const URLsCreate = () => {
               <div className="card-footer">
                 New Url:{" "}
                 <a href={`http://localhost:5173/${shortUrl}`} target="_blank">
-                  http://localhost:5173/{shortUrl}
+                  https://web-scraping-nine.vercel.app/{shortUrl}
                 </a>
               </div>
             )}
