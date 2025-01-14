@@ -85,7 +85,7 @@ const MostVisitedURLs = () => {
                         key={index}
                         className="list-group-item d-flex justify-content-between align-items-center "
                       >
-                        <div>{index + 1}</div>{" "}
+                        <div className="me-3">{index + 1}</div>{" "}
                         <div className="">
                           <a
                             href={item.original_url}
