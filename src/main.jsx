@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 //IMPORT STYLES
@@ -7,7 +8,9 @@ import { BrowserRouter } from "react-router";
 import AppRoutes from "./router/AppRoutes.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <AppRoutes />
-  </BrowserRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  </StrictMode>
 );
