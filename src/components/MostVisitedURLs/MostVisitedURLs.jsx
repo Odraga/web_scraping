@@ -62,19 +62,23 @@ const MostVisitedURLs = () => {
                 aria-current="true"
               >
                 Last created url:{" "}
-                <button
-                  className="btn btn-link"
-                  onClick={() =>
-                    handleLastCreatedUrl(
-                      `https://web-scraping-nine.vercel.app/${
-                        lastedUrlCreate ? lastedUrlCreate?.shortener_url : ""
-                      }`
-                    )
-                  }
-                >
-                  https://web-scraping-nine.vercel.app/
-                  {lastedUrlCreate?.shortener_url}
-                </button>
+                {lastedUrlCreate.shortener_url ? (
+                  <button
+                    className="btn btn-link"
+                    onClick={() =>
+                      handleLastCreatedUrl(
+                        `https://web-scraping-nine.vercel.app/${
+                          lastedUrlCreate ? lastedUrlCreate?.shortener_url : ""
+                        }`
+                      )
+                    }
+                  >
+                    https://web-scraping-nine.vercel.app/
+                    {lastedUrlCreate?.shortener_url}
+                  </button>
+                ) : (
+                  <></>
+                )}
                 <span className="badge text-bg-primary rounded-pill">
                   {lastedUrlCreate?.click_count}
                 </span>
