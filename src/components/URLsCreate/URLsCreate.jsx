@@ -6,7 +6,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const URLsCreate = ({ makeAnyChange }) => {
-  const [shortUrl, setShortUrl] = useState({});
+  const [shortUrl, setShortUrl] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
   const validationSchema = Yup.object({
